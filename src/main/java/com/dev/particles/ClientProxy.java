@@ -12,6 +12,7 @@ public class ClientProxy extends CommonProxy {
     public void init() {
         Minecraft mc = Minecraft.getMinecraft();
         mc.effectRenderer = new Renderer(mc.theWorld, mc.getTextureManager());
+        System.out.println("EffectRenderer set to: " + mc.effectRenderer.getClass().getSimpleName());
     }
 
     @SubscribeEvent
