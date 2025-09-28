@@ -3,16 +3,22 @@ package com.dev.particles;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.event.world.WorldEvent;
 
 public class ClientProxy extends CommonProxy {
     @Override
     public void init() {
-        Minecraft mc = Minecraft.getMinecraft();
-        mc.effectRenderer = new Renderer(mc.theWorld, mc.getTextureManager());
-        System.out.println("EffectRenderer set to: " + mc.effectRenderer.getClass().getSimpleName());
+    }
+
+    @SubscribeEvent
+    public void onWorldLoad(WorldEvent.Load event) {
+        if (event.world.isRemote) {
+            Minecraft mc = Minecraft.getMinecraft();
+            mc.effectRenderer = new Renderer(event.world, mc.getTextureManager());
+            System.out.println("EffectRenderer set to: " + mc.effectRenderer.getClass().getSimpleName() + " on world load");
+        }
     }
 
     @SubscribeEvent

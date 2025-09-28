@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Particles.MODID, name = "Particles Mod", version = "1.08", clientSideOnly = true)
+@Mod(modid = Particles.MODID, name = "Particles Mod", version = "1.10", clientSideOnly = true)
 public class Particles {
     public static final String MODID = "particles";
 
